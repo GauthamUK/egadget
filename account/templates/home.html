@@ -1,0 +1,67 @@
+{%extends 'index.html' %}
+{% block login %}
+<div class="screen">
+  <div class="screen__content">
+  
+{% if messages%}
+    {% for i in messages %}
+      {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class="'alert alert-success">
+          {{i}}
+        </div>
+      {% endif %}
+    {% endfor %}
+
+
+{% endif %}
+
+{% if messages%}
+    {% for i in messages %}
+      {% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="'alert alert-danger">
+          {{i}}
+        </div>
+      {% endif %}
+    {% endfor %}
+
+
+{% endif %}
+
+
+
+
+
+
+<form class="login" action="" method="post">
+{%csrf_token%}
+ 
+
+<h3>Login</h3>
+{{form}}
+<button class="button login__submit">Log In Now
+      <!-- <span class="button__text">Log In Now</span> -->
+      <!-- <i class="button__icon fas fa-chevron-right"></i> -->
+</button>
+<br>
+<div class="social">
+  New User?. <a href="{%url 'reg'%}" >SignUp</a>
+</div>
+</form>
+<div class="social-login">
+  <h3>log in via</h3>
+  <div class="social-icons">
+      <a href="#" class="social-login__icon fab fa-instagram"></a>
+      <a href="#" class="social-login__icon fab fa-facebook"></a>
+      <a href="#" class="social-login__icon fab fa-twitter"></a>
+  </div>
+</div>
+</div>
+<div class="screen__background">
+  <span class="screen__background__shape screen__background__shape4"></span>
+  <span class="screen__background__shape screen__background__shape3"></span>		
+  <span class="screen__background__shape screen__background__shape2"></span>
+  <span class="screen__background__shape screen__background__shape1"></span>
+</div>
+</div>
+</div>
+{% endblock login %}
